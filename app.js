@@ -3,9 +3,7 @@ const app = express();
 const PORT = 3000;
 const fs = require("fs");
 const axios = require("axios");
-
-
-
+app.use(express.json());
 let content;
 
 const readFile = () => {
@@ -29,6 +27,14 @@ const writeFile = () => {
           console.log('DONE WRITE OVER THAT FILE');
         }
       );
+};
+
+const getPost = (id) => {
+    axios.get(`https://jsonplaceholder.typicode.com/posts/1/`).then(response => {
+        console.log(response.data);
+    }).catch(err => {
+      console.log(err);
+    })
 };
 
 app.listen(PORT, () => {
