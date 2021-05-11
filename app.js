@@ -20,8 +20,8 @@ const readFile = () => {
 
 const writeFile = () => {
     fs.writeFile(
-        './data.txt',
-        `Hello Bayan`,
+        './text.txt',
+        `A new file has been created`,
         (err) => {
           if (err) {
             console.log(err);
