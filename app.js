@@ -30,12 +30,28 @@ const writeFile = () => {
 };
 
 const getPost = (id) => {
-    axios.get(`https://jsonplaceholder.typicode.com/posts/1/`).then(response => {
+    axios.get(`https://jsonplaceholder.typicode.com/posts/${id}/`).then(response => {
         console.log(response.data);
     }).catch(err => {
       console.log(err);
     })
 };
+// getPost(1);
+// getPost(50);
+
+const getPostAsync = async (data) => {
+    try {
+        const response = await axios.get(
+          `https://jsonplaceholder.typicode.com/posts/${data}/comments`
+        );
+        console.log(response.data);
+      } catch (err) {
+        throw err;
+      }
+};
+getPostAsync(1);
+getPostAsync(50);
+
 
 app.listen(PORT, () => {
     console.log("OK");    
